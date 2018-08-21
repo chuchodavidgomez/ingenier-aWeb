@@ -1,0 +1,33 @@
+<html>
+	<head>
+	<p>oli</p>
+	</head>
+	
+	<body>
+		<script type = "text/javascript">
+			pascal();
+			function pascal(){
+				var h = 6
+				var ant;
+				var fila;
+				console.log("1");
+				for(var i = 0; i < h; i++){
+					fila = "1-";
+					if(i>0){
+						for(var j = 0; j < ant.length; j++){
+							if(j != ant.length-1){
+								var suma = parseInt(ant[j])+parseInt(ant[j+1]);
+								fila = fila + suma + "-";
+							}						
+						}
+					}						
+					fila = fila + "1"
+					ant = fila.split("-");
+					var tam = ant.length;					
+					console.log(fila);
+				}	
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<p>Short marge</p>
+	</head>
+	
+	<body>
+		<input type="text" name="numero" placeholder="ingrese numero" id="n">
+		<input type="submit" name="inputnumero" id="ip" onclick="inicio()">
+		<script type = "text/javascript">
+			function inicio(){
+				var numero = document.getElementById("n").value.split("");		
+				numero = mergeSort(numero)
+				numero = numero.join("")
+				document.getElementById("n").value = numero
+				console.log(numero)	
+			}
+
+			function mergeSort (arr) {
+				if (arr.length === 1) {
+    				return arr
+  				}
+				
+				const mitad = Math.floor(arr.length / 2)
+				const izquierda = arr.slice(0, mitad)
+				const derecha = arr.slice(mitad)
+
+				return merge(mergeSort(izquierda), mergeSort(derecha))
+			}
+
+			function merge (izquierda, derecha) {
+				let result = []
+				let tamIzq = 0
+				let tamDer = 0
+
+				while (tamIzq < izquierda.length && tamDer < derecha.length) {
+					if (izquierda[tamIzq] < derecha[tamDer]) {
+						result.push(izquierda[tamIzq])
+						tamIzq++
+					} else {
+						result.push(derecha[tamDer])
+						tamDer++
+					}
+				}
+
+				result = result.concat(izquierda.slice(tamIzq))
+				result = result.concat(derecha.slice(tamDer))
+				return result;
+			}
+
+		</script>
+	</body>
+
+</html>
